@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>UN Search</title>
+		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> -->
+		<link rel="stylesheet" type= "text/css" href="index.css">
+		<!-- TODO: Link your CSS file here -->
+	</head>
+
+	<body>
+		<div class="main">
+			<div id="display">
+				<div class = "image"></div> 
+					<img src = "UNEmblem.png" alt = "UN Emblem" class = "image"><img>
+				<div class="title">
+					<p class="title">Search United Nations Resolutions</p>
+				</div>
+			</div>
+			<div class="button">
+				<button type="button" id="googlebtn" onclick="GoogleLogin()">		
+				    Sign-In with Google
+				</button>
+			</div>
+		</div>
+
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+		<script>
+		  const firebaseConfig = {
+		  apiKey: "AIzaSyCI9XwHF_AI6Pr436Kde5zcCtVUSvkrbxI",
+		  authDomain: "calhacks-dd90a.firebaseapp.com",
+		  databaseURL: "https://calhacks-dd90a.firebaseio.com",
+		  projectId: "calhacks-dd90a",
+		  storageBucket: "calhacks-dd90a.appspot.com",
+		  messagingSenderId: "383629757546",
+		  appId: "1:383629757546:web:4eeca2a17e53ab05724e13",
+		  measurementId: "G-936EZGCS51"
+		};
+		firebase.initializeApp(firebaseConfig);
+		</script>
+		<script>
+			function GoogleLogin(){
+			// create google provider object
+			var provider = new firebase.auth.GoogleAuthProvider();
+			//login with popup window
+			firebase.auth().signInWithPopup(provider).then(function() {
+				window.location="congrats.html";
+			})
+			.catch(function(error){
+				var errorMessage=error.message;
+				alert(errorMessage);
+			})
+			}
+		</script>
+	</body>
+
+<!-- 	<body>
+		<div id = "main">
+			<div id="display">
+				<div class = "image"></div> 
+					<img src = "UNEmblem.png" alt = "UN Emblem" class = "image"><img>
+				<div class="title">
+					<p class="title">United Nations</p>
+				</div>
+			</div>
+
+			  <div id="container">        
+				 <button type="submit" onclick="signIn()">		
+			    <a href="google-popup.html">Google Login</a>
+				</button> 
+				<button type="submit" onclick="signIn()">		
+			    <a href="google-signin.html">Sign-In with Google</a>
+				</button>
+			  </div>
+
+		</div>
+
+	</body> -->
+</html>

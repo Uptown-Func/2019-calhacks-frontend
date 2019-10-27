@@ -1,0 +1,84 @@
+body {
+	margin: 0px;
+	height:100vh;
+	background-image: url("blue_background.jpg");
+	background-size: cover;
+	font-family: "Roboto";
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+
+#main{
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: center;
+}
+
+#display {
+	width: 80vw;
+	height: 40vh;
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	justify-content: center;
+}
+
+#container {
+	padding: 30px;
+	font-size: 30px;
+}
+
+.title {
+	text-align: center;
+	display: inline;
+	font-size: 75px;
+	color: white;
+	justify-content: center;
+}
+.button{
+	text-align: center;
+}
+
+button {
+	border:  1px;
+	border-style: solid;
+	border-color: grey;
+	// background-color: #99C6FD;
+	background-color: white;
+	// color: white;
+	text-align: center;
+	transition: 0.25s;
+	padding: 6px;
+	// width: 70px;
+	// border-radius: 25px;
+	width: 500px;
+	cursor: pointer;
+	font-size: 15px;
+	// padding: 12px 20px;
+	margin: 20px 0;
+	// display: inline-block;
+	// border: 2px solid #99C6FD;
+	// box-sizing: border-box;
+	/* TODO: Use the padding property to give more space around the text */
+
+	/* TODO: Use the border-radius property to make the button rounded */
+
+}
+
+button:hover {
+	/* TODO: Add whatever you think is cool when you hover over the button! */
+	transform: scale(1.1);
+	text-decoration: underline;
+	color: black;
+	// background-color: #ddd;
+}

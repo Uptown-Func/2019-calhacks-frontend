@@ -1,0 +1,8 @@
+body {
+	margin: 0px;
+	background-image: url("congrats.jpeg");
+	background-size: cover;
+	font-family: "Roboto";
+	/* TODO: Use color property and set it to black */
+	color: black;
+}
