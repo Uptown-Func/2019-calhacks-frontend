@@ -641,17 +641,27 @@ function closeNav() {
 <script src="jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <script>
-  var timepoints = [];
-  $.getJSON('sample.json', function(data) {
-    data.forEach(function(element) {
-      timepoints.push({
-        "value": moment(element.date).valueOf()
-      });
+  function rf(callback) {
+    var temp = $.getJSON("sample.json", function(data) {
+      callback(data);
     });
-  });
-  window.onload = function() {
+  }
+  (function tseries() {
     var domEl = 'timeseries';
     var brushEnabled = true;
-    timeseries(domEl, timepoints, brushEnabled);
-  }
+    rf(function(data) {
+      if (data != null) {
+        var timepoints = [];
+        data.forEach(function(element) {
+          timepoints.push({
+            "value": moment(element.date).valueOf()
+          });
+        });
+        console.log(timepoints);
+        timeseries(domEl, timepoints, brushEnabled);
+      } else {
+        alert('Null data error')
+      }
+    });
+  })();
 </script>
