@@ -1,0 +1,321 @@
+html {
+  min-width: 1040px;
+}
+
+.unsearch body {
+  background: #fcfcfa;
+  color: #333;
+  font-family: "PT Serif", serif;
+  margin: 1em auto 4em auto;
+  position: relative;
+  width: 960px;
+}
+
+.unsearch header,
+.unsearch footer,
+.unsearch aside,
+.unsearch h1,
+.unsearch h2,
+.unsearch h3,
+.unsearch h4 {
+  font-family: "PT Sans", sans-serif;
+}
+
+.unsearch h1,
+.unsearch h2,
+.unsearch h3,
+.unsearch h4 {
+  color: #000;
+}
+
+.unsearch header,
+.unsearch footer {
+  color: #636363;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -2px;
+  margin: .3em 0 .1em 0;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h1, h2 {
+  text-rendering: optimizeLegibility;
+}
+
+h2 a[name],
+h2 a[id] {
+  color: #ccc;
+  right: 100%;
+  padding: 0 .3em;
+  position: absolute;
+}
+
+header,
+footer {
+  font-size: small;
+}
+
+.unsearch header aside,
+.unsearch footer aside {
+  float: left;
+  margin-right: .5em;
+}
+
+.unsearch header aside:after,
+.unsearch footer aside:after {
+  padding-left: .5em;
+  content: "/";
+}
+
+footer {
+  margin-top: 8em;
+}
+
+h1 ~ aside {
+  font-size: small;
+  right: 0;
+  position: absolute;
+  width: 180px;
+}
+
+.attribution {
+  font-size: small;
+  margin-bottom: 2em;
+}
+
+body > p, li > p {
+  line-height: 1.5em;
+}
+
+body > p {
+  width: 720px;
+}
+
+body > blockquote {
+  width: 640px;
+}
+
+blockquote q {
+  display: block;
+  font-style: oblique;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  width: 690px;
+  margin-left: 30px;
+}
+
+a {
+  color: steelblue;
+}
+
+a:not(:hover) {
+  text-decoration: none;
+}
+
+pre, code, textarea {
+  font-family: "Menlo", monospace;
+}
+
+code {
+  line-height: 1em;
+}
+
+textarea {
+  font-size: 100%;
+}
+
+body > pre {
+  border-left: solid 2px #ccc;
+  padding-left: 18px;
+  margin: 2em 0 2em -20px;
+}
+
+.html .value,
+.javascript .string,
+.javascript .regexp {
+  color: #756bb1;
+}
+
+.html .tag,
+.css .tag,
+.javascript .keyword {
+  color: #3182bd;
+}
+
+.comment {
+  color: #636363;
+}
+
+.html .doctype,
+.javascript .number {
+  color: #31a354;
+}
+
+.html .attribute,
+.css .attribute,
+.javascript .class,
+.javascript .special {
+  color: #e6550d;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+sup, sub {
+  line-height: 0;
+}
+
+q:before {
+  content: "“";
+}
+
+q:after {
+  content: "”";
+}
+
+blockquote q {
+  line-height: 1.5em;
+  display: inline;
+}
+
+blockquote q:before,
+blockquote q:after {
+  content: "";
+}
+
+
+
+
+
+
+
+
+body {
+    font: 16px 'Open Sans';
+    color: #2C3E50;
+}
+a {
+    text-decoration: none;
+    color: #3498DB;
+}
+.container {
+    margin: 1%;
+}
+.text {
+    width: 100%;
+}
+.text p {
+    width: 75%;
+    margin: auto;
+    padding: 10px 0px;
+    text-align: center;
+}
+code {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+@media screen and (min-width: 800px) {
+    code {
+        width: 70%;
+    }
+}
+.header {
+    width: 100%;
+    text-align: center;
+    margin: 1% 0;
+}
+.header img {
+    padding-top: 10px;
+}
+.header div {
+    font-weight: 700;
+    font-size: 1.6em;
+    padding-top: 10px;
+}
+.dac-logo {
+    display: none;
+}
+@media screen and (min-width: 800px) {
+    .dac-logo {
+        display: block;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+    .dac-logo img {
+        width: 120px;
+    }
+}
+.contact {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+.footer {
+    font-size: 0.9em;
+    text-align: center;
+    padding: 5px;
+}
+/** Styles for TIMESERIES */
+
+.timeseries {
+    width: 100%;
+    padding: 2% 0;
+}
+.circ {
+    fill: #D35400;
+    opacity: 0.6;
+    stroke: rgba(211, 84, 0, 0.7);
+    stroke-width: 5px;
+}
+.domain {
+    display: none;
+}
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-size: 12px;
+}
+.tick line {
+    stroke: #d5d5d5;
+    opacity: 0.7;
+}
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
+.clear-brush {
+    display: none;
+}
+.brush-control {
+    padding: .5%;
+    width: 100%;
+    text-align: center;
+}
+.brush-info {
+    display: inline-block;
+    font-size: 14px;
+}
