@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html class="unsearch">
 <meta charset="utf-8">
-<title>UNSearch</title>
+<title>UNsearch</title>
 <style>
 
 @import url(style.css);
@@ -216,13 +216,13 @@ text {
   <button class="openbtn" onclick="openNav()">&#9776;</button>
 </div>
 
-<h1>UNSearch</h1>
+<h1>UNsearch</h1>
 
 <p id="chart1">
 
 <p><aside>Mouseover to distort the nodes.</aside>
 
-<p>Welcome to the <b>UNSearch</b> homepage! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non libero turpis. Integer mattis fringilla risus. Maecenas ut leo ut velit imperdiet mollis ac nec sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse convallis orci nec felis commodo, at condimentum ligula egestas. Proin ut interdum leo. Proin non nunc sed est rhoncus luctus sed sed mauris. Etiam volutpat et magna et pharetra. Curabitur fermentum facilisis arcu, ut iaculis erat placerat non. Nunc non risus vitae tortor eleifend ultricies non non magna. Fusce sit amet diam augue. Praesent vitae pulvinar leo, vel egestas leo. Quisque sed est enim.
+<p>Welcome to the <b>UNsearch</b> homepage! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non libero turpis. Integer mattis fringilla risus. Maecenas ut leo ut velit imperdiet mollis ac nec sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse convallis orci nec felis commodo, at condimentum ligula egestas. Proin ut interdum leo. Proin non nunc sed est rhoncus luctus sed sed mauris. Etiam volutpat et magna et pharetra. Curabitur fermentum facilisis arcu, ut iaculis erat placerat non. Nunc non risus vitae tortor eleifend ultricies non non magna. Fusce sit amet diam augue. Praesent vitae pulvinar leo, vel egestas leo. Quisque sed est enim.
 
 <p>Phasellus imperdiet tortor quis ligula consequat sodales. Fusce vitae velit augue. Fusce dui est, eleifend vel erat maximus, finibus volutpat est. Aenean porta leo in quam fermentum scelerisque. Fusce eros lacus, pulvinar vel volutpat eget, bibendum vel ante. Curabitur ultrices tincidunt lorem, non placerat metus condimentum vitae. Morbi sit amet nibh imperdiet, interdum ligula sit amet, maximus erat. Donec tempor posuere orci, pellentesque laoreet metus semper varius. Vestibulum eu augue ut tellus volutpat volutpat sit amet in arcu. Nulla in blandit leo. Nulla facilisi. Duis in porttitor magna. Etiam ullamcorper consectetur tempor. Aenean et tortor convallis, ullamcorper est sed, facilisis dolor.
 
@@ -281,7 +281,7 @@ text {
 
   var force = d3.layout.force()
       .gravity(0.1)
-      .charge(-120)
+      .charge(-360)
       .linkDistance(30)
       .size([width, height]);
 
@@ -299,15 +299,40 @@ text {
 
     var links = [];
 
+    Array.prototype.diff = function(a) {
+        return this.filter(function(i) {return a.indexOf(i) < 0;});
+    };
+
     for (var i = 0; i < n; i++) {
+        var currNode = data[i];
+        var marked = [];
         for (var j = i + 1; j < n; j++) {
-            if (data[i].related.includes(data[j].identifier)) {
+            if (currNode.related.includes(data[j].identifier)) {
                 links.push({
                     "source": i,
                     "target": j,
                     "value": 1
                 });
+                marked.push(currNode.related.indexOf(data[j].identifier));
             }
+        }
+        for (var k in [...Array(data[i].related.length).keys()].diff(marked)) {
+            var id = currNode.related[k];
+            if (!data.some(e => e.identifier === id)) {
+                data.push({
+                    "identifier": id,
+                    "group": 1
+                });
+            }
+            var m = 0;
+            while (data[m].identifier !== id) {
+                ++m;
+            }
+            links.push({
+                "source": i,
+                "target": m,
+                "value": 1
+            });
         }
     }
 
@@ -344,7 +369,7 @@ text {
     var label = node.append("text")
         .attr("x", 15)
         .attr("dy", ".35em")
-        .text(function(d) { return d.title; });
+        .text(function(d) { return d.identifier; });
 
     var cell = node.append("path")
         .attr("class", "cell");
